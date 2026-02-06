@@ -1,0 +1,35 @@
+2026-01-29 00:05:12 [ERROR]: Error: Invalid login: 535-5.7.8 Username and Password not accepted. For more information, go to
+535 5.7.8  https://support.google.com/mail/?p=BadCredentials d9443c01a7336-2a88b4c3d4csm30153325ad.56 - gsmtp
+    at SMTPConnection._formatError (/Users/adityapachauri/Desktop/claims-website/backend/node_modules/nodemailer/lib/smtp-connection/index.js:809:19)
+    at SMTPConnection._actionAUTHComplete (/Users/adityapachauri/Desktop/claims-website/backend/node_modules/nodemailer/lib/smtp-connection/index.js:1588:34)
+    at SMTPConnection.<anonymous> (/Users/adityapachauri/Desktop/claims-website/backend/node_modules/nodemailer/lib/smtp-connection/index.js:556:26)
+    at SMTPConnection._processResponse (/Users/adityapachauri/Desktop/claims-website/backend/node_modules/nodemailer/lib/smtp-connection/index.js:993:20)
+    at SMTPConnection._onData (/Users/adityapachauri/Desktop/claims-website/backend/node_modules/nodemailer/lib/smtp-connection/index.js:774:14)
+    at SMTPConnection._onSocketData (/Users/adityapachauri/Desktop/claims-website/backend/node_modules/nodemailer/lib/smtp-connection/index.js:195:44)
+    at TLSSocket.emit (node:events:524:28)
+    at addChunk (node:internal/streams/readable:561:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+    at Readable.push (node:internal/streams/readable:392:5)
+2026-01-29 03:38:40 [ERROR]: JsonWebTokenError: jwt malformed
+    at module.exports [as verify] (/Users/adityapachauri/Desktop/claims-website/backend/node_modules/jsonwebtoken/verify.js:70:17)
+    at protect (/Users/adityapachauri/Desktop/claims-website/backend/middleware/auth.js:24:29)
+    at Layer.handle [as handle_request] (/Users/adityapachauri/Desktop/claims-website/backend/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/adityapachauri/Desktop/claims-website/backend/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/Users/adityapachauri/Desktop/claims-website/backend/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/Users/adityapachauri/Desktop/claims-website/backend/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/adityapachauri/Desktop/claims-website/backend/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/Users/adityapachauri/Desktop/claims-website/backend/node_modules/express/lib/router/index.js:346:12)
+    at next (/Users/adityapachauri/Desktop/claims-website/backend/node_modules/express/lib/router/index.js:280:10)
+    at Function.handle (/Users/adityapachauri/Desktop/claims-website/backend/node_modules/express/lib/router/index.js:175:3)
+2026-01-29 22:10:01 [ERROR]: Error: Invalid login: 535-5.7.8 Username and Password not accepted. For more information, go to
+535 5.7.8  https://support.google.com/mail/?p=BadCredentials d2e1a72fcca58-82379b222f1sm6604737b3a.7 - gsmtp
+    at SMTPConnection._formatError (/Users/adityapachauri/Desktop/claims-website/backend/node_modules/nodemailer/lib/smtp-connection/index.js:809:19)
+    at SMTPConnection._actionAUTHComplete (/Users/adityapachauri/Desktop/claims-website/backend/node_modules/nodemailer/lib/smtp-connection/index.js:1588:34)
+    at SMTPConnection.<anonymous> (/Users/adityapachauri/Desktop/claims-website/backend/node_modules/nodemailer/lib/smtp-connection/index.js:556:26)
+    at SMTPConnection._processResponse (/Users/adityapachauri/Desktop/claims-website/backend/node_modules/nodemailer/lib/smtp-connection/index.js:993:20)
+    at SMTPConnection._onData (/Users/adityapachauri/Desktop/claims-website/backend/node_modules/nodemailer/lib/smtp-connection/index.js:774:14)
+    at SMTPConnection._onSocketData (/Users/adityapachauri/Desktop/claims-website/backend/node_modules/nodemailer/lib/smtp-connection/index.js:195:44)
+    at TLSSocket.emit (node:events:508:20)
+    at addChunk (node:internal/streams/readable:564:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:515:3)
+    at Readable.push (node:internal/streams/readable:395:5)

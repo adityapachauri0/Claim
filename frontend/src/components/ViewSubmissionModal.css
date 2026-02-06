@@ -1,0 +1,232 @@
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.modal-container {
+    background: white;
+    border-radius: 16px;
+    max-width: 800px;
+    width: 100%;
+    max-height: 90vh;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+/* Header */
+.modal-header {
+    background: linear-gradient(135deg, #6366f1 0%, #3b82f6 100%);
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.modal-header-content h2 {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem 0;
+}
+
+.modal-header-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.reference-number {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.875rem;
+}
+
+.modal-close-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.modal-close-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Status Badges */
+.status-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.status-badge.inline {
+    display: inline-flex;
+}
+
+.status-new {
+    background: rgba(52, 211, 153, 0.2);
+    color: #10b981;
+}
+
+.status-processing {
+    background: rgba(96, 165, 250, 0.2);
+    color: #3b82f6;
+}
+
+.status-completed {
+    background: rgba(16, 185, 129, 0.2);
+    color: #059669;
+}
+
+.status-draft {
+    background: rgba(156, 163, 175, 0.2);
+    color: #6b7280;
+}
+
+.status-default {
+    background: rgba(156, 163, 175, 0.2);
+    color: #6b7280;
+}
+
+/* Content */
+.modal-content {
+    padding: 1.5rem;
+    overflow-y: auto;
+    max-height: calc(90vh - 100px);
+    background: #f9fafb;
+}
+
+.modal-section {
+    background: white;
+    border-radius: 12px;
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin: 0 0 1rem 0;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.section-title svg {
+    color: #6366f1;
+}
+
+.section-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+@media (max-width: 640px) {
+    .section-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.field-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.field-group label {
+    font-size: 0.75rem;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+}
+
+.field-group p {
+    margin: 0;
+    color: #1f2937;
+    font-weight: 500;
+}
+
+.not-provided {
+    color: #9ca3af;
+    font-style: italic;
+    font-weight: 400;
+}
+
+.reference-code {
+    font-family: monospace;
+    background: #f3f4f6;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.mono-text {
+    font-family: monospace;
+    font-size: 0.875rem;
+}
+
+/* Info Box */
+.info-box {
+    background: #f9fafb;
+    border-radius: 8px;
+    padding: 1rem;
+    border-left: 4px solid #6366f1;
+}
+
+.info-box p {
+    margin: 0;
+    color: #374151;
+    line-height: 1.6;
+}
+
+/* Progress */
+.progress-container {
+    padding: 0.5rem 0;
+}
+
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.progress-header span {
+    font-size: 0.875rem;
+    color: #6b7280;
+}
+
+.progress-percentage {
+    color: #6366f1 !important;
+    font-weight: 600;
+}
+
+.progress-bar-bg {
+    width: 100%;
+    height: 8px;
+    background: #e5e7eb;
+    border-radius: 9999px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #6366f1 0%, #3b82f6 100%);
+    border-radius: 9999px;
+    transition: width 0.3s ease;
+}

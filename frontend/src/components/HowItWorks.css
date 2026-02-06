@@ -1,0 +1,186 @@
+.how-it-works {
+    padding: var(--space-24) 0;
+    background: var(--color-white);
+}
+
+.section-label {
+    display: inline-block;
+    padding: var(--space-2) var(--space-4);
+    background: rgba(0, 212, 170, 0.1);
+    color: var(--color-accent-dark);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    border-radius: var(--radius-full);
+    margin-bottom: var(--space-4);
+}
+
+.steps-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-8);
+    margin-bottom: var(--space-16);
+    position: relative;
+}
+
+.step-card {
+    position: relative;
+    background: var(--color-white);
+    border: 2px solid var(--color-gray-100);
+    border-radius: var(--radius-2xl);
+    padding: var(--space-8);
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.step-card:hover {
+    border-color: var(--color-accent);
+    transform: translateY(-12px) scale(1.02);
+    box-shadow:
+        0 20px 40px rgba(0, 212, 170, 0.15),
+        0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.step-card:hover .step-icon {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 12px 30px rgba(0, 212, 170, 0.4);
+}
+
+.step-card:hover .step-highlight {
+    background: var(--color-accent);
+    color: var(--color-primary);
+    transform: scale(1.05);
+}
+
+.step-number {
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: var(--text-4xl);
+    font-weight: 800;
+    color: var(--color-gray-100);
+    font-family: var(--font-display);
+    z-index: 0;
+}
+
+.step-icon {
+    position: relative;
+    z-index: 1;
+    width: 72px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
+    color: var(--color-primary);
+    border-radius: var(--radius-xl);
+    margin: 0 auto var(--space-6);
+    box-shadow: 0 8px 20px rgba(0, 212, 170, 0.3);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.step-card h3 {
+    font-size: var(--text-xl);
+    margin-bottom: var(--space-4);
+    color: var(--color-primary);
+}
+
+.step-card p {
+    font-size: var(--text-base);
+    color: var(--color-gray-600);
+    margin-bottom: var(--space-4);
+    line-height: 1.7;
+}
+
+.step-highlight {
+    display: inline-block;
+    padding: var(--space-2) var(--space-4);
+    background: var(--color-gray-50);
+    color: var(--color-accent-dark);
+    font-size: var(--text-sm);
+    transition: all 0.3s ease;
+    font-weight: 600;
+    border-radius: var(--radius-full);
+}
+
+.step-connector {
+    position: absolute;
+    right: -40px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 32px;
+    height: 32px;
+    color: var(--color-gray-300);
+    z-index: 2;
+}
+
+.step-connector svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* CTA Banner */
+.cta-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-8);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+    border-radius: var(--radius-2xl);
+    padding: var(--space-10) var(--space-12);
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-banner::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 60%;
+    height: 200%;
+    background: radial-gradient(ellipse, rgba(0, 212, 170, 0.15) 0%, transparent 60%);
+}
+
+.cta-content {
+    position: relative;
+    z-index: 1;
+}
+
+.cta-content h3 {
+    font-size: var(--text-2xl);
+    color: var(--color-white);
+    margin-bottom: var(--space-2);
+}
+
+.cta-content p {
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+}
+
+.cta-banner .btn {
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .steps-container {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .step-connector {
+        display: none;
+    }
+
+    .cta-banner {
+        flex-direction: column;
+        text-align: center;
+        padding: var(--space-8);
+    }
+}

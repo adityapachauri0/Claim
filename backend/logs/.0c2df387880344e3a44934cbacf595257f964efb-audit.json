@@ -1,0 +1,35 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "/Users/adityapachauri/Desktop/claims-website/backend/logs/.0c2df387880344e3a44934cbacf595257f964efb-audit.json",
+    "files": [
+        {
+            "date": 1769618557969,
+            "name": "/Users/adityapachauri/Desktop/claims-website/backend/logs/combined-2026-01-28.log",
+            "hash": "4ca3af50576327a0484a1396818bfb63411b26852e18eb788460cf2affc204cf"
+        },
+        {
+            "date": 1769625002576,
+            "name": "/Users/adityapachauri/Desktop/claims-website/backend/logs/combined-2026-01-29.log",
+            "hash": "d34dabc6faa63cac3aedf153e248041b4f47d05a173e93631f1254d4a70abece"
+        },
+        {
+            "date": 1769712221914,
+            "name": "/Users/adityapachauri/Desktop/claims-website/backend/logs/combined-2026-01-30.log",
+            "hash": "867c55b587dff6ed5e0f8d133174137618546a635ae233da9f86607c22828137"
+        },
+        {
+            "date": 1769852712239,
+            "name": "/Users/adityapachauri/Desktop/claims-website/backend/logs/combined-2026-01-31.log",
+            "hash": "096a17ed43b5f7e169204a27dbe1d5125cb922a4567cf5621b8ac2b236125f0d"
+        },
+        {
+            "date": 1769884440864,
+            "name": "/Users/adityapachauri/Desktop/claims-website/backend/logs/combined-2026-02-01.log",
+            "hash": "6016aa49701c10e8a5230cc4edd416d3124f3d265d7d3aadfc81abaab51a6667"
+        }
+    ],
+    "hashType": "sha256"
+}

@@ -1,0 +1,33 @@
+{
+    "name": "PCP Claim Today",
+    "short_name": "PCP Claim Today",
+    "description": "Claim compensation for mis-sold PCP and HP car finance",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#0a2540",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            "src": "/favicon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/favicon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        },
+        {
+            "src": "/favicon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ],
+    "categories": [
+        "finance",
+        "business"
+    ],
+    "lang": "en-GB"
+}

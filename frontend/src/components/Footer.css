@@ -1,0 +1,209 @@
+.footer {
+    background: var(--color-primary);
+    color: var(--color-white);
+    padding: var(--space-16) 0 0;
+}
+
+.footer-main {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+    gap: var(--space-10);
+    padding-bottom: var(--space-12);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Brand Section */
+.footer-brand .logo {
+    display: inline-flex;
+    margin-bottom: var(--space-4);
+}
+
+.footer .logo-icon {
+    background: var(--color-accent);
+    color: var(--color-primary);
+}
+
+.footer .logo-text {
+    color: var(--color-white);
+}
+
+.footer .logo-accent {
+    color: var(--color-accent);
+}
+
+.brand-description {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: var(--text-sm);
+    line-height: 1.7;
+    margin-bottom: var(--space-6);
+}
+
+.social-links {
+    display: flex;
+    gap: var(--space-3);
+}
+
+.social-links a {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-lg);
+    color: var(--color-white);
+    transition: all var(--transition-fast);
+}
+
+.social-links a:hover {
+    background: var(--color-accent);
+    color: var(--color-primary);
+}
+
+/* Links Sections */
+.footer-links h4,
+.footer-contact h4 {
+    color: var(--color-white);
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-5);
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: var(--space-3);
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: var(--text-sm);
+    transition: color var(--transition-fast);
+}
+
+.footer-links a:hover {
+    color: var(--color-accent);
+}
+
+/* Contact Section */
+.footer-contact ul {
+    list-style: none;
+}
+
+.footer-contact li {
+    display: flex;
+    gap: var(--space-3);
+    margin-bottom: var(--space-4);
+}
+
+.footer-contact li>svg {
+    color: var(--color-accent);
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.footer-contact span {
+    display: block;
+    font-size: var(--text-xs);
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 2px;
+}
+
+.footer-contact a,
+.footer-contact p {
+    color: var(--color-white);
+    font-size: var(--text-sm);
+    margin: 0;
+}
+
+.footer-contact a:hover {
+    color: var(--color-accent);
+}
+
+/* Disclaimer */
+.footer-disclaimer {
+    padding: var(--space-8) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-disclaimer h5 {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-4);
+}
+
+.footer-disclaimer p {
+    font-size: var(--text-xs);
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 1.8;
+    margin-bottom: var(--space-3);
+}
+
+.footer-disclaimer p:last-child {
+    margin-bottom: 0;
+}
+
+.footer-disclaimer a {
+    color: var(--color-accent);
+}
+
+/* Bottom Section */
+.footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-6) 0;
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: var(--text-sm);
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.footer-badges {
+    display: flex;
+    gap: var(--space-4);
+}
+
+.badge-item {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--space-2) var(--space-3);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-sm);
+    font-size: var(--text-xs);
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .footer-main {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-8);
+    }
+
+    .footer-brand {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 640px) {
+    .footer-main {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: var(--space-4);
+        text-align: center;
+    }
+
+    .footer-badges {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}

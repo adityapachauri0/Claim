@@ -1,0 +1,35 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "/Users/adityapachauri/Desktop/claims-website/backend/logs/.d2223a8837c0cd9130cfebb9ee6c8c60a6f643b3-audit.json",
+    "files": [
+        {
+            "date": 1769618557968,
+            "name": "/Users/adityapachauri/Desktop/claims-website/backend/logs/error-2026-01-28.log",
+            "hash": "a057586c0b3000ecc98bfdf0c1b77f506c0a4edb34427ae2643fddc359e4f078"
+        },
+        {
+            "date": 1769625198139,
+            "name": "/Users/adityapachauri/Desktop/claims-website/backend/logs/error-2026-01-29.log",
+            "hash": "88235327a6a85612d2cf55b7f5ad2f3e54850222ced27344998019b071ed77de"
+        },
+        {
+            "date": 1769721213185,
+            "name": "/Users/adityapachauri/Desktop/claims-website/backend/logs/error-2026-01-30.log",
+            "hash": "f2fbce3ad435615004d7d2a5953c147d67223cc70b5e111fb9f7da2ed6c737ad"
+        },
+        {
+            "date": 1769852712238,
+            "name": "/Users/adityapachauri/Desktop/claims-website/backend/logs/error-2026-01-31.log",
+            "hash": "22f176cbc14cd311b665245c46f73fbee686cea0ee95675790ddf9bad5f766c0"
+        },
+        {
+            "date": 1769884941859,
+            "name": "/Users/adityapachauri/Desktop/claims-website/backend/logs/error-2026-02-01.log",
+            "hash": "e032b90f9fbf7cd9797827c90f8ab3d90bd86a77173372d435ff7a8df8cb166e"
+        }
+    ],
+    "hashType": "sha256"
+}
