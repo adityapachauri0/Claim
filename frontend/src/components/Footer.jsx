@@ -83,7 +83,7 @@ const Footer = () => {
                     </p>
                     <p>
                         We operate on a No Win, No Fee basis. You only pay a fee if your claim is successful.
-                        Our fee is between 18-36% (including VAT) of any compensation received. You have the right
+                        Our fee is between 18-36% (Excluding VAT) of any compensation received. You have the right
                         to make a claim directly to your lender or through the Financial Ombudsman Service for free.
                         For more details, please read our <a href="#">Terms and Conditions</a>.
                     </p>

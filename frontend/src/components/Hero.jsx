@@ -110,16 +110,16 @@ const Hero = ({ onStartClaim }) => {
                     <div className="floating-testimonial">
                         <img src="/images/person-1.png" alt="Customer" className="testimonial-avatar" />
                         <div className="testimonial-content">
-                            <p>"I got £820 back from a 2019 deal!"</p>
+                            <p>"Applied for my 2019 PCP claim easily!"</p>
                             <span>James T., Manchester</span>
                         </div>
                     </div>
 
                     <div className="floating-badge badge-1">
-                        <span>✓</span> Claim Approved
+                        <span>✓</span> Claim Submitted
                     </div>
                     <div className="floating-badge badge-2">
-                        <span>£</span> Money Returned
+                        <span>£</span> No Win No Fee
                     </div>
                 </div>
             </div>

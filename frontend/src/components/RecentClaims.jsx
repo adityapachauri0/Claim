@@ -95,7 +95,7 @@ const RecentClaims = () => {
                 <div className="ticker-text">
                     <span className="ticker-name">{currentClaim.name}</span>
                     <span className="ticker-location">from {currentClaim.location}</span>
-                    <span className="ticker-amount">Claim Applied Successfully</span>
+                    <span className="ticker-amount">Claim Submitted Successfully</span>
                     <span className="ticker-time">{currentClaim.timeAgo}</span>
                 </div>
                 <button className="ticker-close" onClick={handleClose} aria-label="Close notification">
