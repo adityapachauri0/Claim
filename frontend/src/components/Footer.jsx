@@ -50,13 +50,6 @@ const Footer = () => {
                         <h4>Contact Us</h4>
                         <ul>
                             <li>
-                                <Phone size={18} />
-                                <div>
-                                    <span>Freephone</span>
-                                    <a href="tel:08001234567">0800 123 4567</a>
-                                </div>
-                            </li>
-                            <li>
                                 <Mail size={18} />
                                 <div>
                                     <span>Email</span>

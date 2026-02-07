@@ -31,6 +31,14 @@
     color: rgba(255, 255, 255, 0.7);
 }
 
+.testimonial-stat .stat-subtitle {
+    display: block;
+    font-size: var(--text-xs);
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: var(--space-1);
+    font-style: italic;
+}
+
 .testimonials-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);

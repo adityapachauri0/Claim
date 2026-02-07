@@ -47,10 +47,6 @@ const Header = () => {
                     </div>
 
                     <div className="nav-actions">
-                        <a href="tel:08001234567" className="phone-link">
-                            <Phone size={18} />
-                            <span>0800 123 4567</span>
-                        </a>
                         <button
                             className="btn btn-primary"
                             onClick={() => scrollToSection('claim-form')}

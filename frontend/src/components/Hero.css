@@ -202,42 +202,62 @@
 
 .hero-stats {
     display: flex;
-    gap: var(--space-8);
+    gap: var(--space-4);
     flex-wrap: wrap;
+    padding: var(--space-4);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: var(--radius-xl);
+    border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .stat-item {
     display: flex;
     align-items: center;
     gap: var(--space-3);
+    padding: var(--space-3) var(--space-4);
+    background: rgba(0, 212, 170, 0.15);
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(0, 212, 170, 0.3);
+    transition: all 0.3s ease;
 }
 
-.stat-icon {
-    width: 48px;
-    height: 48px;
+.stat-item:hover {
+    background: rgba(0, 212, 170, 0.25);
+    transform: translateY(-2px);
+}
+
+.hero-stats .stat-icon {
+    width: 52px;
+    height: 52px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(0, 212, 170, 0.1);
-    border: 1px solid rgba(0, 212, 170, 0.3);
+    background: rgba(0, 212, 170, 0.25);
+    border: 2px solid #00d4aa;
     border-radius: var(--radius-lg);
-    color: var(--color-accent);
+    color: #00d4aa;
 }
 
-.stat-info {
+.hero-stats .stat-info {
     display: flex;
     flex-direction: column;
 }
 
-.stat-value {
-    font-size: var(--text-xl);
-    font-weight: 700;
-    color: var(--color-white);
+.hero-stats .stat-value {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: #00d4aa !important;
+    text-shadow: 0 2px 10px rgba(0, 212, 170, 0.5);
+    letter-spacing: -0.02em;
 }
 
-.stat-label {
-    font-size: var(--text-sm);
-    color: rgba(255, 255, 255, 0.6);
+.hero-stats .stat-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #ffffff !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 /* Hero Visual */
@@ -606,10 +626,33 @@
 
     .hero-title {
         font-size: clamp(1.75rem, 7vw, 2.5rem);
+        margin-bottom: var(--space-4);
     }
 
     .hero-subtitle {
         font-size: var(--text-base);
+        line-height: 1.6;
+        text-align: center;
+        margin-bottom: var(--space-5);
+        padding: 0 var(--space-2);
+    }
+
+    /* Fix: Checklist items properly stacked and aligned on mobile */
+    .hero-checklist {
+        grid-template-columns: 1fr;
+        gap: var(--space-2);
+        text-align: left;
+        padding: 0;
+        margin-bottom: var(--space-6);
+    }
+
+    .hero-checklist li {
+        justify-content: flex-start;
+        font-size: var(--text-sm);
+        background: rgba(255, 255, 255, 0.08);
+        padding: var(--space-2) var(--space-3);
+        border-radius: var(--radius-md);
+        width: 100%;
     }
 
     .hero-visual {
@@ -620,12 +663,38 @@
     .hero-stats {
         flex-direction: row;
         flex-wrap: wrap;
-        gap: var(--space-4);
-        align-items: center;
+        gap: var(--space-3);
+        align-items: stretch;
+        justify-content: center;
+        padding: var(--space-3);
     }
 
     .stat-item {
-        flex: 1 0 auto;
+        flex: 1 1 calc(50% - var(--space-2));
+        min-width: 140px;
+        max-width: 160px;
+        padding: var(--space-3);
+        text-align: center;
+        flex-direction: column;
+    }
+
+    .hero-stats .stat-icon {
+        width: 44px;
+        height: 44px;
+        margin: 0 auto var(--space-2);
+    }
+
+    .hero-stats .stat-info {
+        align-items: center;
+    }
+
+    .hero-stats .stat-value {
+        font-size: 1.25rem;
+    }
+
+    .hero-stats .stat-label {
+        font-size: 0.75rem;
+        text-align: center;
     }
 
     .hero-as-seen {
@@ -639,5 +708,20 @@
     .hero-badge .badge {
         font-size: var(--text-xs);
         padding: var(--space-1) var(--space-3);
+    }
+
+    .hero-cta {
+        margin-bottom: var(--space-6);
+    }
+
+    .hero-cta .btn {
+        font-size: var(--text-base);
+        padding: var(--space-3) var(--space-6);
+    }
+
+    .cta-note {
+        justify-content: center;
+        text-align: center;
+        flex-wrap: wrap;
     }
 }

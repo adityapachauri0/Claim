@@ -9,7 +9,7 @@ const Testimonials = () => {
             amount: '£820',
             lender: 'BMW Financial Services',
             rating: 5,
-            text: 'I had no idea I could claim for my old PCP deal from 2019. The process was incredibly simple – I filled out the form in a few minutes and they handled everything else. Got my money back within 3 months!',
+            text: 'I had no idea I could claim for my old PCP deal from 2019. The process was incredibly simple – I filled out the form in a few minutes and they handled everything else. My claim has been submitted and I\'m waiting for the outcome!',
             image: '/images/person-1.png',
             verified: true
         },
@@ -19,7 +19,7 @@ const Testimonials = () => {
             amount: '£1,234',
             lender: 'Black Horse Finance',
             rating: 5,
-            text: 'I was skeptical at first but decided to give it a try. So glad I did! The team was incredibly helpful and patient with all my questions. They found two agreements I had completely forgotten about.',
+            text: 'I was skeptical at first but decided to give it a try. So glad I did! The team was incredibly helpful and patient with all my questions. They found two agreements I had completely forgotten about and submitted my claim.',
             image: '/images/person-2.png',
             verified: true
         },
@@ -29,7 +29,7 @@ const Testimonials = () => {
             amount: '£675',
             lender: 'Santander Consumer Finance',
             rating: 5,
-            text: 'Quick and easy process from start to finish. Submitted my claim details and within weeks I received confirmation that my case was successful. The no win no fee policy gave me complete peace of mind.',
+            text: 'Quick and easy process from start to finish. Submitted my claim details and received confirmation that my application was accepted. The no win no fee policy gives me complete peace of mind.',
             image: '/images/person-3.png',
             verified: true
         }
@@ -39,7 +39,7 @@ const Testimonials = () => {
         { value: '£8.4 Billion', label: 'Expected Total Payouts' },
         { value: '400,000+', label: 'Customers Helped' },
         { value: '97%', label: 'Success Rate' },
-        { value: '8 Weeks', label: 'Average Settlement Time' }
+        { value: 'Fully Managed', label: 'Claim Process', subtitle: 'We handle every step on your behalf.' }
     ];
 
     return (
@@ -57,6 +57,7 @@ const Testimonials = () => {
                         <div key={index} className="testimonial-stat">
                             <span className="stat-value">{stat.value}</span>
                             <span className="stat-label">{stat.label}</span>
+                            {stat.subtitle && <span className="stat-subtitle">{stat.subtitle}</span>}
                         </div>
                     ))}
                 </div>
@@ -82,10 +83,6 @@ const Testimonials = () => {
                                         )}
                                     </h4>
                                     <span className="location">{testimonial.location}</span>
-                                </div>
-                                <div className="claim-amount">
-                                    <span className="amount">{testimonial.amount}</span>
-                                    <span className="claimed">claimed</span>
                                 </div>
                             </div>
 

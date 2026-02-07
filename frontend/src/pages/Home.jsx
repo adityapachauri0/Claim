@@ -6,6 +6,7 @@ import Eligibility from '../components/Eligibility';
 import ClaimForm from '../components/ClaimForm';
 import Testimonials from '../components/Testimonials';
 import FAQ from '../components/FAQ';
+import FeesAndCharges from '../components/FeesAndCharges';
 import Footer from '../components/Footer';
 import RecentClaims from '../components/RecentClaims';
 import ExitIntentPopup from '../components/ExitIntentPopup';
@@ -27,6 +28,7 @@ const Home = () => {
                 <ClaimForm formRef={formRef} />
                 <Testimonials />
                 <FAQ />
+                <FeesAndCharges />
             </main>
             <Footer />
 
