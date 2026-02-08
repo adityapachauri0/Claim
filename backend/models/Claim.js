@@ -66,6 +66,14 @@ const claimSchema = new mongoose.Schema({
   },
 
   // Consent and Legal
+  notBankrupt: {
+    type: Boolean,
+    required: function () { return !this.isDraft; },
+    default: false
+  },
+  signature: {
+    type: String  // Base64 PNG image
+  },
   termsAccepted: {
     type: Boolean,
     required: function () { return !this.isDraft; },

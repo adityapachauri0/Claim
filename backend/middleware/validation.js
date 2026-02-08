@@ -109,6 +109,21 @@ const claimValidationRules = [
         .withMessage('Please enter a valid UK postcode'),
 
 
+    // Declaration & Signature
+    body('notBankrupt')
+        .isBoolean()
+        .withMessage('Bankruptcy declaration must be provided')
+        .custom((value) => {
+            if (value !== true) {
+                throw new Error('You must confirm you are not bankrupt');
+            }
+            return true;
+        }),
+
+    body('signature')
+        .notEmpty()
+        .withMessage('Signature is required'),
+
     // Consent
     body('termsAccepted')
         .isBoolean()

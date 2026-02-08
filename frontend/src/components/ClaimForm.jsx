@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { Check, AlertCircle, Loader2, Save } from 'lucide-react';
+import SignatureCanvas from 'react-signature-canvas';
 import './ClaimForm.css';
 
 // Generate or retrieve session ID
@@ -48,8 +49,14 @@ const ClaimForm = ({ formRef }) => {
 
 
         // Consent (simplified)
-        termsAccepted: false
+        termsAccepted: false,
+
+        // Declaration & Signature
+        notBankrupt: false,
+        signature: ''
     });
+
+    const signatureRef = useRef(null);
 
     // Load existing draft on component mount
     useEffect(() => {
@@ -166,6 +173,10 @@ const ClaimForm = ({ formRef }) => {
         // Consent
         if (!formData.termsAccepted) newErrors.termsAccepted = 'You must accept the terms';
 
+        // Declaration & Signature
+        if (!formData.notBankrupt) newErrors.notBankrupt = 'You must confirm you are not bankrupt';
+        if (!formData.signature) newErrors.signature = 'Please provide your signature';
+
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
     };
@@ -189,6 +200,8 @@ const ClaimForm = ({ formRef }) => {
             ...formData,
             // Map dob to dateOfBirth for backend consistency
             dateOfBirth: formData.dob,
+            signature: formData.signature,
+            notBankrupt: formData.notBankrupt
         };
 
         try {
@@ -491,6 +504,73 @@ const ClaimForm = ({ formRef }) => {
                                     </div>
                                 </div>
                             )}
+                        </div>
+
+
+                        {/* Section 3: Declaration & Signature */}
+                        <div className="form-section">
+                            <div className="section-title">
+                                <span className="section-number">3</span>
+                                <h3>Declaration & Signature</h3>
+                            </div>
+                            <p className="section-description">Please confirm the following and provide your signature</p>
+
+                            {/* Bankruptcy Declaration */}
+                            <div className="form-group">
+                                <label className={`form-checkbox ${errors.notBankrupt ? 'checkbox-error' : ''}`}>
+                                    <input
+                                        type="checkbox"
+                                        name="notBankrupt"
+                                        checked={formData.notBankrupt}
+                                        onChange={handleChange}
+                                    />
+                                    <span>I confirm I have not been declared bankrupt, and am not currently subject to bankruptcy proceedings. *</span>
+                                </label>
+                                {errors.notBankrupt && <span className="form-error">{errors.notBankrupt}</span>}
+                            </div>
+
+                            {/* Signature Pad */}
+                            <div className="form-group signature-group">
+                                <label className="form-label">Your Signature *</label>
+                                <p className="signature-instruction">Please sign in the box below using your mouse or finger</p>
+                                <div className={`signature-pad-container ${errors.signature ? 'error' : ''}`}>
+                                    <SignatureCanvas
+                                        ref={signatureRef}
+                                        canvasProps={{
+                                            className: 'signature-canvas',
+                                            width: 500,
+                                            height: 200
+                                        }}
+                                        onEnd={() => {
+                                            if (signatureRef.current) {
+                                                const signatureData = signatureRef.current.toDataURL('image/png');
+                                                setFormData(prev => ({ ...prev, signature: signatureData }));
+                                                if (errors.signature) {
+                                                    setErrors(prev => ({ ...prev, signature: '' }));
+                                                }
+                                            }
+                                        }}
+                                    />
+                                </div>
+                                <button
+                                    type="button"
+                                    className="btn btn-secondary btn-clear-signature"
+                                    onClick={() => {
+                                        if (signatureRef.current) {
+                                            signatureRef.current.clear();
+                                            setFormData(prev => ({ ...prev, signature: '' }));
+                                        }
+                                    }}
+                                >
+                                    Clear Signature
+                                </button>
+                                {errors.signature && <span className="form-error">{errors.signature}</span>}
+                            </div>
+
+                            <p className="signature-legal-text">
+                                By signing above and clicking 'Submit My Claim', you confirm that all details provided are accurate
+                                and you authorise PCP Claim Today to investigate and pursue any potential claims on your behalf.
+                            </p>
                         </div>
 
 

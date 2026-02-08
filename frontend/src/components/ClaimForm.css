@@ -248,10 +248,54 @@
     margin-bottom: var(--space-4);
 }
 
-.signature-input {
-    font-family: 'Dancing Script', cursive, serif;
-    font-size: var(--text-xl);
-    color: var(--color-primary);
+.signature-pad-container {
+    border: 2px solid var(--color-gray-300);
+    border-radius: var(--radius-lg);
+    background: var(--color-white);
+    overflow: hidden;
+    margin-bottom: var(--space-4);
+}
+
+.signature-pad-container.error {
+    border-color: #ef4444;
+}
+
+.signature-canvas {
+    display: block;
+    width: 100%;
+    height: 200px;
+    max-width: 100%;
+    touch-action: none;
+}
+
+.btn-clear-signature {
+    padding: var(--space-2) var(--space-4);
+    font-size: var(--text-sm);
+    background: var(--color-gray-100);
+    border: 1px solid var(--color-gray-300);
+    color: var(--color-gray-700);
+    cursor: pointer;
+    border-radius: var(--radius-md);
+    transition: all var(--transition-base);
+}
+
+.btn-clear-signature:hover {
+    background: var(--color-gray-200);
+}
+
+.signature-legal-text {
+    font-size: var(--text-xs);
+    color: var(--color-gray-500);
+    line-height: 1.5;
+    margin-top: var(--space-4);
+    padding: var(--space-3);
+    background: rgba(0, 212, 170, 0.05);
+    border-radius: var(--radius-md);
+    border-left: 3px solid var(--color-accent);
+}
+
+.checkbox-error {
+    color: #ef4444;
 }
 
 /* Fee & Submit Section */
