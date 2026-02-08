@@ -61,10 +61,9 @@ draftSchema.pre('save', function (next) {
         // Define required fields for each step
         const step1Fields = ['firstName', 'lastName', 'email', 'phone', 'dob'];
         const step2Fields = ['addressLine1', 'city', 'postcode'];
-        const step3Fields = ['financeType', 'financePeriodStart', 'financePeriodEnd'];
-        const step4Fields = ['termsAccepted', 'privacyAccepted'];
+        const step3Fields = ['termsAccepted'];
 
-        const allFields = [...step1Fields, ...step2Fields, ...step3Fields, ...step4Fields];
+        const allFields = [...step1Fields, ...step2Fields, ...step3Fields];
 
         // Count filled fields - handle both flat and nested structure
         let filledCount = 0;
@@ -90,14 +89,6 @@ draftSchema.pre('save', function (next) {
         });
 
         step3Fields.forEach(field => {
-            if (hasValue(data[field])) {
-                filledCount++;
-            } else if (data.claimDetails && hasValue(data.claimDetails[field])) {
-                filledCount++;
-            }
-        });
-
-        step4Fields.forEach(field => {
             if (hasValue(data[field])) {
                 filledCount++;
             } else if (data.consent && hasValue(data.consent[field])) {

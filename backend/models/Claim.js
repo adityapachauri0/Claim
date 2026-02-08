@@ -49,31 +49,7 @@ const claimSchema = new mongoose.Schema({
   prevCity: { type: String },
   prevPostcode: { type: String },
 
-  // Claim Specific Details
-  hadCarFinance: {
-    type: Boolean,
-    required: function () { return !this.isDraft; }
-  },
-  financeType: {
-    type: String,
-    enum: ['pcp', 'hp', 'lease', 'unsure', 'PCP', 'HP', 'Both', 'Not Sure'],
-    required: function () { return !this.isDraft; }
-  },
-  financePeriod: {
-    type: String,
-    required: function () { return !this.isDraft; }
-  },
-  financePeriodStart: {
-    type: String
-  },
-  financePeriodEnd: {
-    type: String
-  },
-  wasCommissionDisclosed: {
-    type: String,
-    enum: ['yes', 'no', 'unsure'],
-    required: function () { return !this.isDraft; }
-  },
+  // Additional Details (optional)
   lenders: [{
     type: String
   }],
@@ -188,8 +164,7 @@ claimSchema.pre('save', function (next) {
   const fields = [
     'firstName', 'lastName', 'email', 'phone', 'dateOfBirth',
     'addressLine1', 'city', 'postcode',
-    'financeType', 'financePeriod', 'wasCommissionDisclosed',
-    'termsAccepted', 'privacyAccepted'
+    'termsAccepted'
   ];
 
   let filledCount = 0;

@@ -277,14 +277,7 @@ router.get('/export', protect, async (req, res) => {
             'Prev Address Line 1',
             'Prev City',
             'Prev Postcode',
-            // Section 3: Claim/Finance Details
-            'Had Car Finance',
-            'Finance Type',
-            'Finance Period',
-            'Finance Period Start',
-            'Finance Period End',
-            'Commission Disclosed',
-            // Section 4: Consent
+            // Section 3: Consent
             'Terms Accepted',
             'Privacy Accepted',
             'Marketing Opt-In',
@@ -319,14 +312,7 @@ router.get('/export', protect, async (req, res) => {
                 fd.prevAddressLine1 || '',
                 fd.prevCity || '',
                 fd.prevPostcode || '',
-                // Section 3: Claim/Finance Details
-                fd.hadCarFinance ? 'Yes' : 'No',
-                fd.financeType || '',
-                fd.financePeriod || '',
-                fd.financePeriodStart || '',
-                fd.financePeriodEnd || '',
-                fd.wasCommissionDisclosed || '',
-                // Section 4: Consent
+                // Section 3: Consent
                 fd.termsAccepted ? 'Yes' : 'No',
                 fd.privacyAccepted ? 'Yes' : 'No',
                 fd.marketingOptIn ? 'Yes' : 'No',

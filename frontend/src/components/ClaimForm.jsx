@@ -45,13 +45,7 @@ const ClaimForm = ({ formRef }) => {
         prevCity: '',
         prevPostcode: '',
 
-        // Claim Details
-        hadCarFinance: true,
-        financeType: '',
-        financePeriod: '',
-        financePeriodStart: '',
-        financePeriodEnd: '',
-        wasCommissionDisclosed: 'unsure',
+
 
         // Consent (simplified)
         termsAccepted: false
@@ -167,10 +161,7 @@ const ClaimForm = ({ formRef }) => {
         if (!formData.postcode.trim()) newErrors.postcode = 'Postcode is required';
         else if (!/^[A-Z]{1,2}\d[A-Z\d]?\s*\d[A-Z]{2}$/i.test(formData.postcode)) newErrors.postcode = 'Invalid UK postcode';
 
-        // Finance Details
-        if (!formData.financeType) newErrors.financeType = 'Please select finance type';
-        if (!formData.financePeriodStart) newErrors.financePeriodStart = 'Start year is required';
-        if (!formData.financePeriodEnd) newErrors.financePeriodEnd = 'End year is required';
+
 
         // Consent
         if (!formData.termsAccepted) newErrors.termsAccepted = 'You must accept the terms';
@@ -196,11 +187,8 @@ const ClaimForm = ({ formRef }) => {
         const claimData = {
             sessionId,
             ...formData,
-            // Map dob to dateOfBirth for backend consistency if needed, 
-            // but the backend schema now expects dateOfBirth.
-            // Let's ensure dob from form is sent as dateOfBirth.
+            // Map dob to dateOfBirth for backend consistency
             dateOfBirth: formData.dob,
-            financePeriod: formData.financePeriod || `${formData.financePeriodStart}-${formData.financePeriodEnd}`,
         };
 
         try {
@@ -231,11 +219,7 @@ const ClaimForm = ({ formRef }) => {
         setIsSubmitting(false);
     };
 
-    const years = [];
-    const currentYear = new Date().getFullYear();
-    for (let y = currentYear; y >= 2000; y--) {
-        years.push(y);
-    }
+
 
     if (submitSuccess) {
         return (
@@ -509,108 +493,6 @@ const ClaimForm = ({ formRef }) => {
                             )}
                         </div>
 
-                        {/* Section 3: Finance Details */}
-                        <div className="form-section">
-                            <div className="section-title">
-                                <span className="section-number">3</span>
-                                <h3>Finance Details</h3>
-                            </div>
-                            <p className="section-description">Tell us about your car finance</p>
-
-                            <div className="form-group">
-                                <label className="form-label">What type of car finance did you have? *</label>
-                                <div className="radio-group">
-                                    {['PCP', 'HP', 'Both', 'Not Sure'].map(type => (
-                                        <label key={type} className="radio-option">
-                                            <input
-                                                type="radio"
-                                                name="financeType"
-                                                value={type}
-                                                checked={formData.financeType === type}
-                                                onChange={handleChange}
-                                            />
-                                            <span className="radio-label">{type === 'HP' ? 'HP (Hire Purchase)' : type === 'PCP' ? 'PCP (Personal Contract Purchase)' : type}</span>
-                                        </label>
-                                    ))}
-                                </div>
-                                {errors.financeType && <span className="form-error">{errors.financeType}</span>}
-                            </div>
-
-                            <div className="form-row">
-                                <div className="form-group">
-                                    <label className="form-label">When did your finance start? *</label>
-                                    <select
-                                        name="financePeriodStart"
-                                        value={formData.financePeriodStart}
-                                        onChange={handleChange}
-                                        className={`form-select ${errors.financePeriodStart ? 'error' : ''}`}
-                                    >
-                                        <option value="">Select year</option>
-                                        {years.map(year => (
-                                            <option key={year} value={year}>{year}</option>
-                                        ))}
-                                    </select>
-                                    {errors.financePeriodStart && <span className="form-error">{errors.financePeriodStart}</span>}
-                                </div>
-
-                                <div className="form-group">
-                                    <label className="form-label">When did your finance end? *</label>
-                                    <select
-                                        name="financePeriodEnd"
-                                        value={formData.financePeriodEnd}
-                                        onChange={handleChange}
-                                        className={`form-select ${errors.financePeriodEnd ? 'error' : ''}`}
-                                    >
-                                        <option value="">Select year</option>
-                                        {years.map(year => (
-                                            <option key={year} value={year}>{year}</option>
-                                        ))}
-                                    </select>
-                                    {errors.financePeriodEnd && <span className="form-error">{errors.financePeriodEnd}</span>}
-                                </div>
-                            </div>
-
-                            <div className="form-group">
-                                <label className="form-label">Were you made aware of any commission paid to the dealer?</label>
-                                <div className="radio-group horizontal">
-                                    <label className="radio-option">
-                                        <input
-                                            type="radio"
-                                            name="wasCommissionDisclosed"
-                                            value="yes"
-                                            checked={formData.wasCommissionDisclosed === 'yes'}
-                                            onChange={handleChange}
-                                        />
-                                        <span className="radio-label">Yes</span>
-                                    </label>
-                                    <label className="radio-option">
-                                        <input
-                                            type="radio"
-                                            name="wasCommissionDisclosed"
-                                            value="no"
-                                            checked={formData.wasCommissionDisclosed === 'no'}
-                                            onChange={handleChange}
-                                        />
-                                        <span className="radio-label">No</span>
-                                    </label>
-                                    <label className="radio-option">
-                                        <input
-                                            type="radio"
-                                            name="wasCommissionDisclosed"
-                                            value="unsure"
-                                            checked={formData.wasCommissionDisclosed === 'unsure'}
-                                            onChange={handleChange}
-                                        />
-                                        <span className="radio-label">Not sure</span>
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div className="info-box">
-                                <AlertCircle size={20} />
-                                <p>If you answered "No" or "Not sure", you may be entitled to compensation as the dealer may have earned hidden commission without your knowledge.</p>
-                            </div>
-                        </div>
 
                         {/* Terms acceptance */}
                         <div className="consent-section">

@@ -108,29 +108,6 @@ const claimValidationRules = [
         .matches(/^[A-Z]{1,2}\d[A-Z\d]? ?\d[A-Z]{2}$/i)
         .withMessage('Please enter a valid UK postcode'),
 
-    // Claim Details
-    body('financeType')
-        .notEmpty()
-        .withMessage('Finance type is required')
-        .isIn(['pcp', 'hp', 'lease', 'unsure', 'both', 'not sure', 'PCP', 'HP', 'Both', 'Not Sure'])
-        .withMessage('Please select a valid finance type'),
-
-    body('financePeriod')
-        .notEmpty()
-        .withMessage('Finance period is required')
-        .custom((value) => {
-            const validRanges = ['2007-2010', '2010-2015', '2015-2020', '2020-2024', 'unsure'];
-            if (validRanges.includes(value)) return true;
-            if (/^\d{4}-\d{4}$/.test(value)) return true;
-            if (/^\d{4}$/.test(value)) return true; // Single year
-            return true; // Be flexible for now
-        }),
-
-    body('wasCommissionDisclosed')
-        .notEmpty()
-        .withMessage('Please indicate if commission was disclosed')
-        .isIn(['yes', 'no', 'unsure'])
-        .withMessage('Please select a valid option'),
 
     // Consent
     body('termsAccepted')
