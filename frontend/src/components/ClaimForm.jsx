@@ -568,8 +568,7 @@ const ClaimForm = ({ formRef }) => {
                             </div>
 
                             <p className="signature-legal-text">
-                                By signing above and clicking 'Submit My Claim', you confirm that all details provided are accurate
-                                and you authorise PCP Claim Today to investigate and pursue any potential claims on your behalf.
+                                By clicking 'Submit My Claim', I confirm that I have had a vehicle on finance and that I was not aware of any commission payment being made to the dealer. I understand that, in order to verify my eligibility, PCP Claim Today will conduct a soft credit check through their provider, Valid8 Ltd. I acknowledge that this credit check will not affect my credit score. I understand that my details may be shared with PCP Claim Today's panel solicitors. By proceeding, I confirm that I have read and agree to the PCP Claim Today <a href="/privacy" target="_blank">Privacy Policy</a>. I acknowledge that my electronic signature will be applied and emailed to me. I consent to sending a letter of complaint to the relevant lenders to assess whether my agreements were mis-sold, and to proceed with presenting my claim.
                             </p>
                         </div>
 
