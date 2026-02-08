@@ -110,7 +110,7 @@ const Hero = ({ onStartClaim }) => {
                     <div className="floating-testimonial">
                         <img src="/images/person-1.png" alt="Customer" className="testimonial-avatar" />
                         <div className="testimonial-content">
-                            <p>"Applied for my 2019 PCP claim easily!"</p>
+                            <p>"Submitted for my 2019 PCP claim easily!"</p>
                             <span>James T., Manchester</span>
                         </div>
                     </div>
