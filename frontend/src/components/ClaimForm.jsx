@@ -13,7 +13,7 @@ const getSessionId = () => {
     return sessionId;
 };
 
-const API_BASE_URL = 'http://localhost:5001';
+const API_BASE_URL = 'https://pcpclaimtoday.co.uk';
 
 const ClaimForm = ({ formRef }) => {
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -454,57 +454,7 @@ const ClaimForm = ({ formRef }) => {
                                     {errors.postcode && <span className="form-error">{errors.postcode}</span>}
                                 </div>
                             </div>
-
-                            <div className="form-group">
-                                <label className="form-checkbox">
-                                    <input
-                                        type="checkbox"
-                                        name="hasPreviousAddress"
-                                        checked={formData.hasPreviousAddress}
-                                        onChange={handleChange}
-                                    />
-                                    <span>I have lived at a different address in the last 3 years</span>
-                                </label>
-                            </div>
-
-                            {formData.hasPreviousAddress && (
-                                <div className="previous-address animate-fadeIn">
-                                    <h4>Previous Address</h4>
-                                    <div className="form-group">
-                                        <label className="form-label">Address Line 1</label>
-                                        <input
-                                            type="text"
-                                            name="prevAddressLine1"
-                                            value={formData.prevAddressLine1}
-                                            onChange={handleChange}
-                                            className="form-input"
-                                        />
-                                    </div>
-                                    <div className="form-row">
-                                        <div className="form-group">
-                                            <label className="form-label">City</label>
-                                            <input
-                                                type="text"
-                                                name="prevCity"
-                                                value={formData.prevCity}
-                                                onChange={handleChange}
-                                                className="form-input"
-                                            />
-                                        </div>
-                                        <div className="form-group">
-                                            <label className="form-label">Postcode</label>
-                                            <input
-                                                type="text"
-                                                name="prevPostcode"
-                                                value={formData.prevPostcode}
-                                                onChange={handleChange}
-                                                className="form-input"
-                                            />
-                                        </div>
-                                    </div>
-                                </div>
-                            )}
-                        </div>
+</div>
 
 
                         {/* Section 3: Declaration & Signature */}

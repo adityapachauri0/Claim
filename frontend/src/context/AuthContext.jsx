@@ -10,7 +10,7 @@ export const AuthProvider = ({ children }) => {
     const [loading, setLoading] = useState(true);
     const [token, setToken] = useState(localStorage.getItem('adminToken'));
 
-    const API_BASE_URL = 'http://localhost:5001/api';
+    const API_BASE_URL = 'https://pcpclaimtoday.co.uk/api';
 
     useEffect(() => {
         const checkAuth = async () => {
