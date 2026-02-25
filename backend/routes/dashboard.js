@@ -52,7 +52,7 @@ router.get('/recent', protect, async (req, res) => {
             Claim.find({ isDraft: { $ne: true } })
                 .sort({ createdAt: -1 })
                 .limit(parseInt(limit))
-                .select('referenceNumber firstName lastName email phone city addressLine1 addressLine2 county postcode dateOfBirth financeProvider agreementType agreementDate status createdAt completionPercentage signature'),
+                .select('referenceNumber firstName lastName email phone city addressLine1 addressLine2 county postcode dateOfBirth financeProvider agreementType agreementDate status createdAt completionPercentage signature r2rStatus'),
             Draft.find()
                 .sort({ lastSaved: -1 })
                 .limit(parseInt(limit))

@@ -136,6 +136,16 @@ const claimSchema = new mongoose.Schema({
     default: 'website'
   },
   ipAddress: String,
+
+  // R2R API Integration
+  r2rStatus: {
+    type: String,
+    enum: ['pending', 'success', 'no_stream', 'auth_required', 'failed', 'not_configured'],
+    default: 'pending'
+  },
+  r2rResponse: { type: Object },
+  r2rSubmittedAt: { type: Date },
+  r2rChallengeId: { type: String },
   location: String,
   userAgent: String,
   referrer: String,

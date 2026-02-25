@@ -4,10 +4,16 @@ import SignatureCanvas from 'react-signature-canvas';
 import './ClaimForm.css';
 
 // Generate or retrieve session ID
+// Generate Kount-compliant 32-character session ID
 const getSessionId = () => {
     let sessionId = sessionStorage.getItem('claimSessionId');
     if (!sessionId) {
-        sessionId = `session_${Date.now()}_${Math.random().toString(36).substring(2, 15)}`;
+        const timestamp = Date.now().toString(36);
+        const random1 = Math.random().toString(36).substring(2, 10);
+        const random2 = Math.random().toString(36).substring(2, 10);
+        const processId = Math.floor(Math.random() * 1000).toString(36);
+        const combined = `${timestamp}-${random1}-${random2}-${processId}`;
+        sessionId = combined.length > 32 ? combined.substring(0, 32) : (combined + Math.random().toString(36).substring(2)).substring(0, 32);
         sessionStorage.setItem('claimSessionId', sessionId);
     }
     return sessionId;

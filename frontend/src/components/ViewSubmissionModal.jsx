@@ -187,6 +187,40 @@ const ViewSubmissionModal = ({ isOpen, onClose, submission }) => {
                                 </div>
                             )}
 
+                            {/* R2R API Status */}
+                            {submission.r2rStatus && (
+                                <div className="modal-section">
+                                    <h3 className="section-title">
+                                        <CheckCircle size={18} />
+                                        R2R Submission Status
+                                    </h3>
+                                    <div className="field-group">
+                                        <label>Status</label>
+                                        <p>
+                                            <span style={{
+                                                display:'inline-block',
+                                                padding:'4px 12px',
+                                                borderRadius:'12px',
+                                                fontSize:'12px',
+                                                fontWeight:'600',
+                                                color:'#fff',
+                                                background: submission.r2rStatus === 'success' ? '#10b981' :
+                                                            submission.r2rStatus === 'no_stream' ? '#f59e0b' :
+                                                            submission.r2rStatus === 'auth_required' ? '#3b82f6' :
+                                                            submission.r2rStatus === 'pending' ? '#6b7280' :
+                                                            submission.r2rStatus === 'not_configured' ? '#9ca3af' : '#ef4444'
+                                            }}>
+                                                {submission.r2rStatus === 'success' ? 'Accepted' :
+                                                 submission.r2rStatus === 'no_stream' ? 'Not Qualifying' :
+                                                 submission.r2rStatus === 'auth_required' ? 'OTP Required' :
+                                                 submission.r2rStatus === 'pending' ? 'Pending' :
+                                                 submission.r2rStatus === 'not_configured' ? 'Not Configured' : 'Failed'}
+                                            </span>
+                                        </p>
+                                    </div>
+                                </div>
+                            )}
+
                             {/* Signature */}
                             {submission.signature && (
                                 <div className="modal-section">

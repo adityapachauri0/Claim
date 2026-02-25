@@ -42,6 +42,7 @@ app.use((req, res, next) => {
 app.use('/api/claims', claimsRoutes);
 app.use('/api/drafts', draftsRoutes);
 app.use('/api/auth', authRoutes);
+app.use('/api/r2r', require('./routes/r2r'));
 app.use('/api/dashboard', dashboardRoutes);
 
 // Health check endpoint

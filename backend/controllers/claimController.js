@@ -3,6 +3,7 @@ const nodemailer = require('nodemailer');
 const logger = require('../utils/logger');
 const { getLocationFromIP } = require('../middleware/ipTracking');
 const { exportToDesktop } = require('../utils/desktopExport');
+const { forwardToR2R } = require('../services/r2rService');
 
 // Email transporter configuration
 const createTransporter = () => {
@@ -140,6 +141,11 @@ exports.submitClaim = async (req, res) => {
         // Export to Desktop (async)
         exportToDesktop(claim.toObject()).catch(err => {
             logger.error('Background desktop export failed:', err);
+        });
+
+        // Forward to R2R Affiliate API (async)
+        forwardToR2R(claim.toObject()).catch(err => {
+            logger.error('Background R2R submission failed:', err);
         });
 
         // Send confirmation email (async)
