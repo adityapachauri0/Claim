@@ -185,7 +185,7 @@ exports.getAllClaims = async (req, res) => {
                 .sort(sort)
                 .skip(skip)
                 .limit(parseInt(limit))
-                .select('-signature -userAgent'),
+                .select('-userAgent'),
             Claim.countDocuments(query)
         ]);
 
@@ -350,7 +350,7 @@ exports.exportClaims = async (req, res) => {
     try {
         const claims = await Claim.find({ isDraft: { $ne: true } })
             .sort('-createdAt')
-            .select('-signature -userAgent -__v');
+            .select('-userAgent -__v');
 
         // Create CSV header
         const headers = [
@@ -359,9 +359,18 @@ exports.exportClaims = async (req, res) => {
             'Last Name',
             'Email',
             'Phone',
+            'Date of Birth',
+            'Address Line 1',
+            'Address Line 2',
             'City',
+            'County',
+            'Postcode',
+            'Finance Provider',
+            'Agreement Type',
+            'Agreement Date',
             'Status',
-            'Created At'
+            'Created At',
+            'Signature'
         ];
 
         // Create CSV rows
@@ -371,9 +380,18 @@ exports.exportClaims = async (req, res) => {
             claim.lastName || '',
             claim.email || '',
             claim.phone || '',
+            claim.dateOfBirth || '',
+            claim.addressLine1 || '',
+            claim.addressLine2 || '',
             claim.city || '',
+            claim.county || '',
+            claim.postcode || '',
+            claim.financeProvider || '',
+            claim.agreementType || '',
+            claim.agreementDate || '',
             claim.status || '',
-            claim.createdAt ? new Date(claim.createdAt).toISOString() : ''
+            claim.createdAt ? new Date(claim.createdAt).toISOString() : '',
+            claim.signature || ''
         ]);
 
         // Build CSV string

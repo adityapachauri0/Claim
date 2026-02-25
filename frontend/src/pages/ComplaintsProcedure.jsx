@@ -47,18 +47,14 @@ const ComplaintsProcedure = () => {
                         {/* Contact Options */}
                         <div className="contact-box">
                             <div className="contact-row">
-                                <Phone className="contact-icon" />
-                                <div>
-                                    <strong>Telephone:</strong>
-                                    <p>Complaints Department on 0800 123 4567</p>
-                                </div>
+
                             </div>
 
                             <div className="contact-row">
                                 <MapPin className="contact-icon" />
                                 <div>
                                     <strong>Post/In Person:</strong>
-                                    <p>For the attention of Complaints Department, PCP Claim Today, 123 Claim Street, London, EC1A 1BB</p>
+                                    <p>For the attention of Complaints Department, PCP Claim Today, Houldsworth Mill, Houldsworth Street, Stockport, SK5 6DA</p>
                                 </div>
                             </div>
 
@@ -185,10 +181,7 @@ const ComplaintsProcedure = () => {
                             </div>
 
                             <div className="contact-row">
-                                <Phone className="contact-icon info" />
-                                <div>
-                                    <strong>Telephone:</strong> 0800 023 4567
-                                </div>
+
                             </div>
 
                             <div className="contact-row">

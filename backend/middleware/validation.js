@@ -145,11 +145,7 @@ const claimValidationRules = [
             return true;
         }),
 
-    body('signature')
-        .optional()
-        .trim()
-        .isLength({ min: 2, max: 100 })
-        .withMessage('Signature must be between 2 and 100 characters'),
+
 ];
 
 

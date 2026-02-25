@@ -13,7 +13,7 @@ import './App.css';
 function App() {
     return (
         <div className="app">
-            <CookieConsent />
+            {/* <CookieConsent /> */}
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/login" element={<Login />} />

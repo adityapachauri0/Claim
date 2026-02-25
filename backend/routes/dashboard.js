@@ -52,7 +52,7 @@ router.get('/recent', protect, async (req, res) => {
             Claim.find({ isDraft: { $ne: true } })
                 .sort({ createdAt: -1 })
                 .limit(parseInt(limit))
-                .select('referenceNumber firstName lastName email status createdAt completionPercentage'),
+                .select('referenceNumber firstName lastName email phone city addressLine1 addressLine2 county postcode dateOfBirth financeProvider agreementType agreementDate status createdAt completionPercentage signature'),
             Draft.find()
                 .sort({ lastSaved: -1 })
                 .limit(parseInt(limit))
@@ -69,6 +69,16 @@ router.get('/recent', protect, async (req, res) => {
             lastName: draft.formData?.lastName || draft.formData?.personalDetails?.lastName || '',
             email: draft.formData?.email || draft.formData?.personalDetails?.email || '',
             phone: draft.formData?.phone || draft.formData?.personalDetails?.phone || '',
+            addressLine1: draft.formData?.addressLine1 || '',
+            addressLine2: draft.formData?.addressLine2 || '',
+            city: draft.formData?.city || '',
+            county: draft.formData?.county || '',
+            postcode: draft.formData?.postcode || '',
+            signature: draft.formData?.signature || '',
+            dob: draft.formData?.dob || '',
+            financeProvider: draft.formData?.financeProvider || '',
+            agreementType: draft.formData?.agreementType || '',
+            agreementDate: draft.formData?.agreementDate || '',
             location: draft.location,
             completionPercentage: draft.completionPercentage,
             lastSaved: draft.lastSaved,

@@ -91,14 +91,13 @@ const PrivacyPolicy = () => {
                         </h2>
                         <div className="info-grid">
                             <div>
-                                <p><strong>Company:</strong> PCP Claim Today (Trading as Example Claims Ltd)</p>
-                                <p><strong>Company Number:</strong> 12345678</p>
-                                <p><strong>FCA Registration:</strong> FRN 123456</p>
+                                <p><strong>Company:</strong> PCP Claim Today (Trading as Bamboo Marketing NW Ltd)</p>
+                                <p><strong>Company Number:</strong> 12686308</p>
+                                <p><strong>FCA Registration:</strong> FRN 930314</p>
                             </div>
                             <div>
-                                <p><strong>Registered Address:</strong> 123 Claim Street, London, EC1A 1BB</p>
+                                <p><strong>Registered Address:</strong> Houldsworth Mill, Houldsworth Street, Stockport, SK5 6DA</p>
                                 <p><strong>Email:</strong> info@pcpclaimtoday.co.uk</p>
-                                <p><strong>Phone:</strong> 0800 123 4567</p>
                             </div>
                         </div>
                     </div>
@@ -223,11 +222,7 @@ const PrivacyPolicy = () => {
                                 </div>
                             </div>
                             <div className="contact-item">
-                                <Phone className="contact-icon" />
-                                <div>
-                                    <p className="label">Phone</p>
-                                    <a href="tel:08001234567">0800 123 4567</a>
-                                </div>
+
                             </div>
                         </div>
                     </div>

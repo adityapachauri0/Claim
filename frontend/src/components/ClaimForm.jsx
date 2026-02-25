@@ -183,7 +183,6 @@ const ClaimForm = ({ formRef }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
         if (!validateForm()) {
             // Scroll to first error
             const firstError = document.querySelector('.form-error');
@@ -201,11 +200,12 @@ const ClaimForm = ({ formRef }) => {
             // Map dob to dateOfBirth for backend consistency
             dateOfBirth: formData.dob,
             signature: formData.signature,
-            notBankrupt: formData.notBankrupt
+            notBankrupt: formData.notBankrupt,
+            termsAccepted: formData.termsAccepted,
         };
 
         try {
-            const response = await fetch(`${API_BASE_URL}/api/claims`, {
+            const response = await fetch(`${import.meta.env.VITE_API_URL || ''}/api/claims`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -370,13 +370,53 @@ const ClaimForm = ({ formRef }) => {
 
                                 <div className="form-group">
                                     <label className="form-label">Date of Birth *</label>
-                                    <input
-                                        type="date"
-                                        name="dob"
-                                        value={formData.dob}
-                                        onChange={handleChange}
-                                        className={`form-input ${errors.dob ? 'error' : ''}`}
-                                    />
+                                    <div style={{display: 'flex', gap: '8px'}}>
+                                        <select
+                                            value={formData.dob ? formData.dob.split('-')[2] : ''}
+                                            onChange={(e) => {
+                                                const parts = (formData.dob || '--').split('-');
+                                                parts[2] = e.target.value;
+                                                setFormData(prev => ({...prev, dob: parts.join('-')}));
+                                            }}
+                                            className={`form-input ${errors.dob ? 'error' : ''}`}
+                                            style={{flex: 0.7}}
+                                        >
+                                            <option value="">Day</option>
+                                            {Array.from({length: 31}, (_, i) => i + 1).map(d => (
+                                                <option key={d} value={String(d).padStart(2, '0')}>{d}</option>
+                                            ))}
+                                        </select>
+                                        <select
+                                            value={formData.dob ? formData.dob.split('-')[1] : ''}
+                                            onChange={(e) => {
+                                                const parts = (formData.dob || '--').split('-');
+                                                parts[1] = e.target.value;
+                                                setFormData(prev => ({...prev, dob: parts.join('-')}));
+                                            }}
+                                            className={`form-input ${errors.dob ? 'error' : ''}`}
+                                            style={{flex: 0.7}}
+                                        >
+                                            <option value="">Month</option>
+                                            {Array.from({length: 12}, (_, i) => i + 1).map(m => (
+                                                <option key={m} value={String(m).padStart(2, '0')}>{m}</option>
+                                            ))}
+                                        </select>
+                                        <select
+                                            value={formData.dob ? formData.dob.split('-')[0] : ''}
+                                            onChange={(e) => {
+                                                const parts = (formData.dob || '--').split('-');
+                                                parts[0] = e.target.value;
+                                                setFormData(prev => ({...prev, dob: parts.join('-')}));
+                                            }}
+                                            className={`form-input ${errors.dob ? 'error' : ''}`}
+                                            style={{flex: 1.2, minWidth: '75px'}}
+                                        >
+                                            <option value="">Year</option>
+                                            {Array.from({length: 82}, (_, i) => new Date().getFullYear() - 18 - i).map(y => (
+                                                <option key={y} value={y}>{y}</option>
+                                            ))}
+                                        </select>
+                                    </div>
                                     {errors.dob && <span className="form-error">{errors.dob}</span>}
                                 </div>
                             </div>
@@ -486,10 +526,16 @@ const ClaimForm = ({ formRef }) => {
                                 <div className={`signature-pad-container ${errors.signature ? 'error' : ''}`}>
                                     <SignatureCanvas
                                         ref={signatureRef}
+                                        penColor="black"
+                                        minWidth={0.8}
+                                        maxWidth={2}
+                                        velocityFilterWeight={0.9}
+                                        throttle={0}
                                         canvasProps={{
                                             className: 'signature-canvas',
-                                            width: 500,
-                                            height: 200
+                                            style: {width: '100%', height: '150px'},
+                                            width: 800,
+                                            height: 150
                                         }}
                                         onEnd={() => {
                                             if (signatureRef.current) {
@@ -517,28 +563,6 @@ const ClaimForm = ({ formRef }) => {
                                 {errors.signature && <span className="form-error">{errors.signature}</span>}
                             </div>
 
-                            <p className="signature-legal-text">
-                                By clicking 'Submit My Claim', I confirm that I have had a vehicle on finance and that I was not aware of any commission payment being made to the dealer. I understand that, in order to verify my eligibility, PCP Claim Today will conduct a soft credit check through their provider, Valid8 Ltd. I acknowledge that this credit check will not affect my credit score. I understand that my details may be shared with PCP Claim Today's panel solicitors. By proceeding, I confirm that I have read and agree to the PCP Claim Today <a href="/privacy" target="_blank">Privacy Policy</a>. I acknowledge that my electronic signature will be applied and emailed to me. I consent to sending a letter of complaint to the relevant lenders to assess whether my agreements were mis-sold, and to proceed with presenting my claim.
-                            </p>
-                        </div>
-
-
-                        {/* Terms acceptance */}
-                        <div className="consent-section">
-                            <div className="form-group">
-                                <label className={`form-checkbox ${errors.termsAccepted ? 'checkbox-error' : ''}`}>
-                                    <input
-                                        type="checkbox"
-                                        name="termsAccepted"
-                                        checked={formData.termsAccepted}
-                                        onChange={handleChange}
-                                    />
-                                    <span>I have read and agree to the <a href="/terms" target="_blank">Terms and Conditions</a> and <a href="/privacy" target="_blank">Privacy Policy</a> *</span>
-                                </label>
-                                {errors.termsAccepted && <span className="form-error">{errors.termsAccepted}</span>}
-                            </div>
-                        </div>
-
                         {/* Submit Button */}
                         <div className="form-submit">
                             <button type="submit" className="btn btn-primary btn-large" disabled={isSubmitting}>
@@ -555,7 +579,29 @@ const ClaimForm = ({ formRef }) => {
                                 )}
                             </button>
                             <p className="submit-note">By submitting, you agree to our terms and authorize us to process your claim.</p>
+                        {/* Terms acceptance */}
+                        <div className="consent-section">
+                            <div className="form-group">
+                                <label className={`form-checkbox ${errors.termsAccepted ? 'checkbox-error' : ''}`}>
+                                    <input
+                                        type="checkbox"
+                                        name="termsAccepted"
+                                        checked={formData.termsAccepted}
+                                        onChange={handleChange}
+                                    />
+                                    <span>I have read and agree to the <a href="/terms" target="_blank">Terms and Conditions</a> and <a href="/privacy" target="_blank">Privacy Policy</a> *</span>
+                                </label>
+                                {errors.termsAccepted && <span className="form-error">{errors.termsAccepted}</span>}
+                            </div>
                         </div>
+                        </div>
+
+                            <p className="signature-legal-text">
+                                By clicking 'Submit My Claim', I confirm that I have had a vehicle on finance and that I was not aware of any commission payment being made to the dealer. I understand that, in order to verify my eligibility, PCP Claim Today will conduct a soft credit check through their provider, Valid8 Ltd. I acknowledge that this credit check will not affect my credit score. I understand that my details may be shared with PCP Claim Today's panel solicitors. By proceeding, I confirm that I have read and agree to the PCP Claim Today <a href="/privacy" target="_blank">Privacy Policy</a>. I acknowledge that my electronic signature will be applied and emailed to me. I consent to sending a letter of complaint to the relevant lenders to assess whether my agreements were mis-sold, and to proceed with presenting my claim.
+                            </p>
+                        </div>
+
+
                     </form>
                 </div>
             </div>

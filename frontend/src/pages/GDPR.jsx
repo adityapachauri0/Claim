@@ -151,7 +151,7 @@ const GDPR = () => {
                             <div className="banner-badge">
                                 <CheckCircle className="badge-icon green" />
                                 <h3>ICO Registered</h3>
-                                <p>Registration: ZA123456</p>
+                                <p>Registration: ZA930314</p>
                             </div>
                             <div className="banner-badge">
                                 <Globe className="badge-icon blue" />
@@ -231,14 +231,7 @@ const GDPR = () => {
                                         <Shield className="method-icon" />
                                         <div>
                                             <p className="method-label">Post</p>
-                                            <p className="method-text">PCP Claim Today, 123 Claim Street, London, EC1A 1BB</p>
-                                        </div>
-                                    </div>
-                                    <div className="method">
-                                        <Shield className="method-icon" />
-                                        <div>
-                                            <p className="method-label">Phone</p>
-                                            <a href="tel:08001234567">0800 123 4567</a>
+                                            <p className="method-text">PCP Claim Today, Houldsworth Mill, Houldsworth Street, Stockport, SK5 6DA</p>
                                         </div>
                                     </div>
                                 </div>

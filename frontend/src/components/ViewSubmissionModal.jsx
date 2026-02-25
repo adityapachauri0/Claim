@@ -92,6 +92,36 @@ const ViewSubmissionModal = ({ isOpen, onClose, submission }) => {
                                 </div>
                             </div>
 
+                            {/* Address Information */}
+                            {(submission.addressLine1 || submission.postcode) && (
+                                <div className="modal-section">
+                                    <h3 className="section-title">
+                                        <MapPin size={18} />
+                                        Address
+                                    </h3>
+                                    <div className="section-grid">
+                                        <div className="field-group">
+                                            <label>Address Line 1</label>
+                                            <p>{submission.addressLine1 || <span className="not-provided">Not provided</span>}</p>
+                                        </div>
+                                        {submission.addressLine2 && (
+                                            <div className="field-group">
+                                                <label>Address Line 2</label>
+                                                <p>{submission.addressLine2}</p>
+                                            </div>
+                                        )}
+                                        <div className="field-group">
+                                            <label>County</label>
+                                            <p>{submission.county || <span className="not-provided">Not provided</span>}</p>
+                                        </div>
+                                        <div className="field-group">
+                                            <label>Postcode</label>
+                                            <p>{submission.postcode || <span className="not-provided">Not provided</span>}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
+
                             {/* Claim Information */}
                             <div className="modal-section">
                                 <h3 className="section-title">
@@ -153,6 +183,19 @@ const ViewSubmissionModal = ({ isOpen, onClose, submission }) => {
                                                 style={{ width: `${submission.completionPercentage}%` }}
                                             ></div>
                                         </div>
+                                    </div>
+                                </div>
+                            )}
+
+                            {/* Signature */}
+                            {submission.signature && (
+                                <div className="modal-section">
+                                    <h3 className="section-title">
+                                        <FileText size={18} />
+                                        Signature
+                                    </h3>
+                                    <div className="signature-display" style={{background:'#fff',padding:'15px',borderRadius:'8px',border:'1px solid #e2e8f0',textAlign:'center'}}>
+                                        <img src={submission.signature} alt="Signature" style={{maxWidth:'100%',maxHeight:'150px',objectFit:'contain'}} />
                                     </div>
                                 </div>
                             )}

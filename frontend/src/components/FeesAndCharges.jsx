@@ -17,7 +17,7 @@ const FeesAndCharges = () => {
                     <span className="section-badge">Transparent Pricing</span>
                     <h2>Fees & Charges</h2>
                     <p className="fees-intro">
-                        PCP Refunds will act on a <strong>'NO WIN NO FEE'</strong> basis, and there are no administration charges or hidden fees payable.
+                        PCP Claim Today will act on a <strong>'NO WIN NO FEE'</strong> basis, and there are no administration charges or hidden fees payable.
                         Our charging rates are set in bands depending upon the amount of redress or refund you receive.
                     </p>
                     <p className="fees-vat-note">
@@ -67,9 +67,9 @@ const FeesAndCharges = () => {
                                 in which you can cancel your contract without charge.
                             </p>
                             <p className="contact-info">
-                                To cancel, please email <a href="mailto:info@pcprefunds.co.uk">info@pcprefunds.co.uk</a> or write to us at:
+                                To cancel, please email <a href="mailto:info@pcpclaimtoday.co.uk">info@pcpclaimtoday.co.uk</a> or write to us at:
                                 <br />
-                                <strong>PCP Refunds, Biz Space Cheadle Place, Stockport Rd, Cheadle SK8 2JX</strong>
+                                <strong>PCP Claim Today, Houldsworth Mill, Houldsworth Street, Stockport, SK5 6DA</strong>
                             </p>
                             <p className="note">
                                 <strong>Note:</strong> If at any time during the 14-day cooling off period, we receive an offer of compensation, our normal fees will be payable.
@@ -80,12 +80,12 @@ const FeesAndCharges = () => {
                             <h4>Cancellation After 14 Days</h4>
                             <p>
                                 If you cancel after the 14-day cooling off period but before an offer of redress is made,
-                                PCP Refunds may decide to make a fair and reasonable cancellation charge which will be determined
+                                PCP Claim Today may decide to make a fair and reasonable cancellation charge which will be determined
                                 by the amount of work completed to that point in time in relation to your claim.
                             </p>
                             <p>
                                 Once a cancellation is requested outside the 14 days, we will send out an itemised bill
-                                detailing the work PCP Refunds have completed on your behalf.
+                                detailing the work PCP Claim Today have completed on your behalf.
                             </p>
                         </div>
                     </div>

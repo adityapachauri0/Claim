@@ -67,7 +67,7 @@ const Footer = () => {
                                 <MapPin size={18} />
                                 <div>
                                     <span>Address</span>
-                                    <p>123 Claim Street, London, EC1A 1BB</p>
+                                    <p>Houldsworth Mill, Houldsworth Street, Stockport, SK5 6DA</p>
                                 </div>
                             </li>
                         </ul>
@@ -77,19 +77,22 @@ const Footer = () => {
                 <div className="footer-disclaimer">
                     <h5>Important Information</h5>
                     <p>
-                        PCP Claim Today is a trading style of Example Claims Ltd, a company registered in England and Wales
-                        (Company No. 12345678). We are authorised and regulated by the Financial Conduct Authority
-                        (FRN 123456) in respect of regulated claims management activities.
+                        PCP Claim Today is a trading style of Bamboo Marketing NW Ltd. Bamboo Marketing NW Ltd is registered in England and Wales (Company No. 12686308) with its registered office at Houldsworth Mill, Houldsworth Street, Stockport, SK5 6DA.
                     </p>
                     <p>
-                        We operate on a No Win, No Fee basis. You only pay a fee if your claim is successful.
-                        Our fee is between 18-36% (Excluding VAT) of any compensation received. You have the right
-                        to make a claim directly to your lender or through the Financial Ombudsman Service for free.
-                        For more details, please read our <a href="#">Terms and Conditions</a>.
+                        Bamboo Marketing NW Ltd is authorised and regulated by the Financial Conduct Authority (FCA) under Firm Reference Number 930314. You can check this on the Financial Services Register at <a href="https://www.fca.org.uk/register" target="_blank" rel="noopener noreferrer">www.fca.org.uk/register</a>.
                     </p>
                     <p>
-                        The FCA has confirmed plans for an industry-wide motor finance compensation scheme expected
-                        in 2026 covering agreements from April 2007 to November 2024.
+                        We are a claims management company. You can make a claim yourself for free without using our service.
+                    </p>
+                    <p>
+                        Outcomes are not guaranteed and the amount you may receive will depend on the circumstances of your claim.
+                    </p>
+                    <p>
+                        We do not provide legal or financial advice.
+                    </p>
+                    <p>
+                        Telephone calls may be recorded and monitored for training, compliance and quality assurance purposes.
                     </p>
                 </div>
 

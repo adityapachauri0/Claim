@@ -337,10 +337,6 @@ const CookiePolicy = () => {
                                 <Cookie size={20} />
                                 info@pcpclaimtoday.co.uk
                             </a>
-                            <a href="tel:08001234567" className="contact-btn secondary">
-                                <Shield size={20} />
-                                0800 123 4567
-                            </a>
                         </div>
                     </div>
                 </div>
